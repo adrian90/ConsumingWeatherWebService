@@ -4,13 +4,16 @@ package Model;
 
 class City {
     private String name;
-    private String skyCondition;
+    private String visibility;
     private String temperature;
     private String humidity;
 
-    public City(String name, String skyCondition, String temperature, String humidity) {
+    public City() {
+    }
+
+    public City(String name, String visibility, String temperature, String humidity) {
         this.name = name;
-        this.skyCondition = skyCondition;
+        this.visibility = visibility;
         this.temperature = temperature;
         this.humidity = humidity;
     }
@@ -19,8 +22,8 @@ class City {
         return name;
     }
 
-    public String getSkyCondition() {
-        return skyCondition;
+    public String getVisibility() {
+        return visibility;
     }
 
     public String getTemperature() {
@@ -35,8 +38,8 @@ class City {
         this.name = name;
     }
 
-    public void setSkyCondition(String skyCondition) {
-        this.skyCondition = skyCondition;
+    public void setVisibility(String visibility) {
+        this.visibility = visibility;
     }
 
     public void setTemperature(String temperature) {
