@@ -28,11 +28,11 @@ public class FrontController extends HttpServlet {
     private Class getCommandClass(HttpServletRequest request) throws ClassNotFoundException{ 
         Class result;
         if (request.getParameter("command") == null){
-            final String command = "PackCommand.MainCommand";
+            final String command = "Controllers.MainCommand";
             result = Class.forName(command); 
         }
         else{
-            final String command = "PackCommand."+(String)request.getParameter("command") 
+            final String command = "Controllers."+(String)request.getParameter("command") 
                     + "Command"; 
             result = Class.forName(command);
         }
@@ -64,8 +64,6 @@ public class FrontController extends HttpServlet {
             Logger.getLogger(FrontController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)

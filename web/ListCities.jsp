@@ -1,6 +1,6 @@
 <%-- 
-    Document   : index
-    Created on : 15-may-2014, 21:32:42
+    Document   : ListCities
+    Created on : 16-may-2014, 16:46:38
     Author     : adria_000
 --%>
 
@@ -12,9 +12,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <form action="FrontController" method="post">
-            <input type="hidden" name="command" value="ListCities">
-            <input type="submit" value="Carrito">
-        </form>
+        <h1>Ciudades!</h1>
     </body>
 </html>

@@ -18,5 +18,4 @@ public class WebServicesMethods {
         GlobalWeatherSoap port = service.getGlobalWeatherSoap12();
         return port.getCitiesByCountry(countryName);
     }
-
 }
