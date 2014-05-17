@@ -15,8 +15,19 @@ public class ListCitiesCommand extends FrontCommand {
     public void process() throws NamingException, SQLException {
 
         Country country = ParseCountry.getListCity(request.getParameter("country"));
-        request.setAttribute("cities", country);
+        if (country == null) {
+            request.setAttribute("checkCountry", 0);
+            try {
+                forward("/FrontController?command=Main");
+            } catch (ServletException ex) {
+                Logger.getLogger(ListCitiesCommand.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(ListCitiesCommand.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
         
+        request.setAttribute("country", country);
+
         try {
             forward("/ListCitiesView.jsp");
         } catch (ServletException ex) {

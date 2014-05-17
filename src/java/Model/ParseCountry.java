@@ -25,6 +25,7 @@ public class ParseCountry {
 
             Document doc = db.parse(is);
             NodeList nodes = doc.getElementsByTagName("City");
+            if (nodes.getLength() == 0) return null;
 
             for (int i = 0; i < nodes.getLength(); i++) {
                 Element line = (Element) nodes.item(i);

@@ -1,5 +1,7 @@
 package Controllers;
 
+import Model.Country;
+import Model.ParseCountry;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -11,8 +13,6 @@ public class MainCommand extends FrontCommand {
 
     @Override
     public void process() throws NamingException, SQLException {
-
-        request.setAttribute("album", "objeto");
         
         try {
             forward("/MainView.jsp");

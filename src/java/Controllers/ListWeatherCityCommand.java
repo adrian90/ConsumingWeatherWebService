@@ -17,7 +17,18 @@ public class ListWeatherCityCommand extends FrontCommand {
     public void process() throws NamingException, SQLException {
         
         City city = ParseCity.getWeatherCity(request.getParameter("city"), request.getParameter("country"));
-        request.setAttribute("cities", city);
+        if (city.getVisibility() == null){
+            request.setAttribute("checkCity", 0);
+            try {
+             forward("/FrontController?command=Main");
+        } catch (ServletException ex) {
+            Logger.getLogger(ListCitiesCommand.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(ListCitiesCommand.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            
+        }
+        request.setAttribute("city", city);
         try {
             forward("/ListWeatherCityView.jsp");
         } catch (ServletException ex) {

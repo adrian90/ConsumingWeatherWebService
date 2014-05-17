@@ -14,6 +14,7 @@ public class ParseCity {
     public static City getWeatherCity(String City, String Country) {
         City city = new City();
         city.setName(City);
+        city.setCountry(Country);
         try {
             DocumentBuilderFactory dbf
                     = DocumentBuilderFactory.newInstance();
