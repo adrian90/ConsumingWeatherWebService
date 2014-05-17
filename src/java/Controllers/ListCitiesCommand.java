@@ -1,5 +1,7 @@
 package Controllers;
 
+import Model.Country;
+import Model.ParseCountry;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -12,10 +14,11 @@ public class ListCitiesCommand extends FrontCommand {
     @Override
     public void process() throws NamingException, SQLException {
 
-        request.setAttribute("album", "objeto");
+        Country country = ParseCountry.getListCity(request.getParameter("country"));
+        request.setAttribute("cities", country);
         
         try {
-            forward("/ListCities.jsp");
+            forward("/ListCitiesView.jsp");
         } catch (ServletException ex) {
             Logger.getLogger(ListCitiesCommand.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {

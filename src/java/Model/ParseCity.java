@@ -1,18 +1,17 @@
 package Model;
 
+import static Model.DataFromElement.getCharacterDataFromElement;
 import java.io.StringReader;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-import org.w3c.dom.CharacterData;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 
 public class ParseCity {
 
-    public City getWeatherCity(String City, String Country) {
+    public static City getWeatherCity(String City, String Country) {
         City city = new City();
         city.setName(City);
         try {
@@ -39,14 +38,5 @@ public class ParseCity {
             e.printStackTrace();
         }
         return city;
-    }
-
-    public String getCharacterDataFromElement(Element e) {
-        Node child = e.getFirstChild();
-        if (child instanceof CharacterData) {
-            CharacterData cd = (CharacterData) child;
-            return cd.getData();
-        }
-        return "?";
     }
 }

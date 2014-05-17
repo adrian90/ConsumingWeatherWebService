@@ -1,20 +1,19 @@
 package Model;
 
+import static Model.DataFromElement.getCharacterDataFromElement;
 import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-import org.w3c.dom.CharacterData;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 
 public class ParseCountry {
 
-    public Country getListCity(String country) {
+    public static Country getListCity(String country) {
         
         List<City> cities = new ArrayList<City>();
         try {
@@ -39,12 +38,4 @@ public class ParseCountry {
         return new Country(country, cities);
     }
 
-    public String getCharacterDataFromElement(Element e) {
-        Node child = e.getFirstChild();
-        if (child instanceof CharacterData) {
-            CharacterData cd = (CharacterData) child;
-            return cd.getData();
-        }
-        return "?";
-    }
 }
