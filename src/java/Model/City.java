@@ -2,7 +2,7 @@
 package Model;
 
 
-class City {
+public class City {
     private String name;
     private String visibility;
     private String temperature;

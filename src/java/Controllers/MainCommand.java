@@ -15,7 +15,7 @@ public class MainCommand extends FrontCommand {
         request.setAttribute("album", "objeto");
         
         try {
-            forward("/ListCities.jsp");
+            forward("/MainView.jsp");
         } catch (ServletException ex) {
             Logger.getLogger(MainCommand.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
