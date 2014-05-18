@@ -18,27 +18,25 @@
         </form>
         <br>
         <div class="col-md-4 col-md-offset-0">
-            <div class="table-responsive">
-                <table class="table table-bordered">
-                    <tr>
-                        <th colspan=10 class="success"><center>Ciudades</center></th>
-                    </tr>
-                    <tr>
-                        <%
-                            Country country = (Country) request.getAttribute("country");
-                            int counter = 0;
-                            for (City city : country.getCities()) {
-                                counter++;%>
-                        <td class="active"><%=city.getName()%></td>
-                        <%
-                            if (counter == 10) {
-                                counter = 0;%>
-                    </tr>
-                    <tr>
-                        <%}%>
-                        <%}%>
-                </table>
-            </div>
+            <table class="table table-bordered">
+                <tr>
+                    <th colspan=10 class="success"><center>Ciudades</center></th>
+                </tr>
+                <tr>
+                    <%
+                        Country country = (Country) request.getAttribute("country");
+                        int counter = 0;
+                        for (City city : country.getCities()) {
+                            counter++;%>
+                    <td class="active"><%=city.getName()%></td>
+                    <%
+                        if (counter == 10) {
+                            counter = 0;%>
+                </tr>
+                <tr>
+                    <%}%>
+                    <%}%>
+            </table>
         </div>
     </body>
 </html>

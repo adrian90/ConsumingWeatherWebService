@@ -1,4 +1,5 @@
 
+<%@page import="Model.City"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -15,5 +16,28 @@
             </button>
         </form>
         <br>
+        <div class="col-md-4 col-md-offset-4">
+            <table class="table table-bordered">
+                <%
+                    City city = (City) request.getAttribute("city");
+                %>
+                <tr>
+                    <td></td>
+                    <th class="success"><%=city.getName() + "-" + city.getCountry()%></th>
+                </tr>
+                <tr>
+                    <td class="success">Temperature:</td>
+                    <td class="active"><%=city.getTemperature()%></td>
+                </tr>
+                <tr>
+                    <td class="success">Visibility:</td>
+                    <td class="active"><%=city.getVisibility()%></td>
+                </tr>
+                <tr>
+                    <td class="success">Humidity:</td>
+                    <td class="active"><%=city.getHumidity()%></td>
+                </tr>
+            </table>
+        </div>
     </body>
 </html>
