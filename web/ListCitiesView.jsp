@@ -10,23 +10,33 @@
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     </head>
     <body class="jumbotron">
-        <%
-            Country country = (Country) request.getAttribute("country");
-            for (City city : country.getCities()) {
-            out.print(city.getName());
-            }
-        %>
-        
-        <div class="col-md-4 col-md-offset-4">
+        <form action="FrontController" method="post">
+            <input type="hidden" name="command" value="Main">
+            <button type="submit" class="btn btn-default">
+                <span class="glyphicon glyphicon-arrow-left"></span>
+            </button>
+        </form>
+        <br>
+        <div class="col-md-4 col-md-offset-0">
             <div class="table-responsive">
-                <table class="table">
-                    <tr>Hola
-                        <td>Hola</td>
+                <table class="table table-bordered">
+                    <tr>
+                        <th colspan=10 class="success"><center>Ciudades</center></th>
                     </tr>
-                    <tr>Paco
-                        <td>Paco</td>
+                    <tr>
+                        <%
+                            Country country = (Country) request.getAttribute("country");
+                            int counter = 0;
+                            for (City city : country.getCities()) {
+                                counter++;%>
+                        <td class="active"><%=city.getName()%></td>
+                        <%
+                            if (counter == 10) {
+                                counter = 0;%>
                     </tr>
-                    <tr>Pepe</tr>
+                    <tr>
+                        <%}%>
+                        <%}%>
                 </table>
             </div>
         </div>
