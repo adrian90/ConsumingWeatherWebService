@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     </head>
     <body class="jumbotron">
+        <%  Country country = (Country) request.getAttribute("country"); %>
         <form action="FrontController" method="post">
             <input type="hidden" name="command" value="Main">
             <button type="submit" class="btn btn-default">
@@ -20,11 +21,10 @@
         <div class="col-md-4 col-md-offset-0">
             <table class="table table-bordered">
                 <tr>
-                    <th colspan=10 class="success"><center>Ciudades</center></th>
+                    <th colspan=10 class="success"><center>Cities from <%=country.getName() %></center></th>
                 </tr>
                 <tr>
                     <%
-                        Country country = (Country) request.getAttribute("country");
                         int counter = 0;
                         for (City city : country.getCities()) {
                             counter++;%>
